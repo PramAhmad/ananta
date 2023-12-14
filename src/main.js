@@ -19,14 +19,19 @@ import '@ionic/vue/css/text-alignment.css';
 import '@ionic/vue/css/text-transformation.css';
 import '@ionic/vue/css/flex-utils.css';
 import '@ionic/vue/css/display.css';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 /* Theme variables */
 import './theme/variables.css';
 
+import './registerServiceWorker'
+// Above the createApp() line
+
+
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
-  
+defineCustomElements(window);
 router.isReady().then(() => {
   app.mount('#app');
 });

@@ -1,9 +1,13 @@
 <template>
-  <ion-app>
-    <ion-router-outlet />
-  </ion-app>
+  <IonContent ref="content">
+    <!-- ion content -->
+    <IonTitle>disability app</IonTitle>
+  </IonContent>
 </template>
 
-<script setup lang="ts">
-import { IonApp, IonRouterOutlet } from '@ionic/vue';
+
+<script>
+import { IonContent, IonTitle } from '@ionic/vue';
+
+
 </script>
