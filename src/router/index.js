@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 
 import HomePage from '@/views/HomePage.vue';
+import MainPage from '@/views/MainPage.vue';
 
 const routes = [
   {

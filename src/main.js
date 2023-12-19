@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import { addIcons } from 'ionicons';
+import { heart } from 'ionicons/icons';
 
 import { IonicVue } from '@ionic/vue';
 
@@ -28,6 +30,9 @@ import './registerServiceWorker'
 // Above the createApp() line
 
 
+addIcons({
+  heart: heart,
+});
 const app = createApp(App)
   .use(IonicVue)
   .use(router);

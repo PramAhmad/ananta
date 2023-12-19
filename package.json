@@ -14,6 +14,7 @@
   "dependencies": {
     "@capacitor/android": "5.5.1",
     "@capacitor/app": "5.0.6",
+    "@capacitor/camera": "^5.0.7",
     "@capacitor/core": "5.5.1",
     "@capacitor/haptics": "5.0.6",
     "@capacitor/keyboard": "5.0.6",
@@ -22,6 +23,8 @@
     "@ionic/vue": "^7.0.0",
     "@ionic/vue-router": "^7.0.0",
     "ionicons": "^7.0.0",
+    "ml5": "^0.12.2",
+    "p5": "^1.9.0",
     "register-service-worker": "^1.7.2",
     "vue": "^3.3.0",
     "vue-router": "^4.2.0"
