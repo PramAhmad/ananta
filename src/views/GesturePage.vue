@@ -87,6 +87,7 @@
 
 <script>
 import { onMounted, ref } from "vue";
+import { IonContent } from "@ionic/vue";
 import {
   GestureRecognizer,
   FilesetResolver,
@@ -96,7 +97,7 @@ import {
 
 export default {
   setup() {
-    const webcam = ref(null); // Added webcam reference
+    const webcam = ref(null);
 
     const icon = ref(true);
     const gestureRecognizer = ref(null);
@@ -127,7 +128,7 @@ export default {
         {
           baseOptions: {
             modelAssetPath:
-              "https://res.cloudinary.com/dvwldqymc/raw/upload/v1702920586/ai/gesture_recognizer_m4s4nb.task",
+              "https://res.cloudinary.com/dvwldqymc/raw/upload/v1727604336/gesture_recognizer_a4kozh.task",
             delegate: "GPU",
           },
           runningMode: runningMode.value,

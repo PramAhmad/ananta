@@ -18,11 +18,16 @@ const routes = [
     path: '/voice',
     name: 'Voice',
     component: () => import('@/views/VoicePage.vue'),
+  },
+  {
+    path: '/edu',
+    name: 'Edu',
+    component: () => import('@/views/EduPage.vue'),
   }
 ];
 
 const router = createRouter({
-  history: createWebHistory("/"),
+  history: createWebHistory(""),
   routes,
 });
 export default router;

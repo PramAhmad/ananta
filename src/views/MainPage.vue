@@ -54,8 +54,9 @@
         />
         <h1 class="text-3xl pb-4 font-bold">Ananta Apps</h1>
         <h2 class="text-lg font-normal text-center pb-8">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione omnis
-          odio quia maiores quod sint ex officia numquam nisi facere?
+            Ananta, Hilangkan Batasan Komunikasi di dunia, Bawa Dunia Tanpa Batas.
+            <br>
+            Kami hadir untuk membantu anda berkomunikasi dengan orang-orang yang memiliki keterbatasan.
         </h2>
 
         <div class="flex justify-around items-center w-full px-4">
@@ -69,7 +70,9 @@
 
                 </div>
               </div>
-              <p>Translator</p>
+              <router-link to="/gesture" class="text-white">
+              <p class="text-center mt-3 font-semibold" @click="gesture()">Translator <br> Gestur</p>
+            </router-link>  
             </div>
           </div>
           <div>
@@ -92,7 +95,10 @@
                   </svg>
                 </div>
               </div>
-              <p>Translator</p>
+            <router-link to="/voice" class="text-white">
+              <p class="text-center mt-3 font-semibold " @click="voice()">Transalor <br> Suara</p>
+            </router-link>  
+
             </div>
           </div>
           <div>
@@ -114,7 +120,8 @@
                 </svg>
               </div>
             </div>
-            <p>technology</p>
+            <p class="text-center mt-3 font-semibold " @click="edu()">Edukasi  <br> Isyarat</p>
+
           </div>
         </div>
       </div>
@@ -180,6 +187,8 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import router from "../router";
+import { IonContent } from "@ionic/vue";
 
 const content = ref(null);
 
@@ -193,6 +202,18 @@ const swipeUp = () => {
     content.value.scrollToBottom(1000);
   }
 };
+
+const edu = () => {
+  window.location.href ="/edu";
+};
+const gesture = () => {
+  window.location.href ="/gesture";
+
+};
+const voice = () => {
+  window.location.href ="/voice";
+};
+
 </script>
 
 <style scoped>

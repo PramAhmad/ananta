@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from "vue";
+import { IonBackButton } from "@ionic/vue";
 import { useSpeechRecognition } from "@vueuse/core";
 import axios from "axios";
 const lang = ref("id-ID");
@@ -53,7 +54,7 @@ const postIsyarat = async () => {
     const results = [];
 
     for (const name of arrtext.value.flat()) {
-      const res = await axios.get("http://localhost:3000/image", {
+      const res = await axios.get("http://localhost:3001/image", {
         params: { names: name },
       });
       results.push(res.data.result[0]);
@@ -68,7 +69,13 @@ const postIsyarat = async () => {
 </script>
 
 <template>
+ 
   <ion-content class="background">
+    <!-- bungkus ion back button -->
+    <div class="flex justify-start p-5">
+  <ion-back-button defaultHref="/" class="custom-icon-size" color="success" size="5"></ion-back-button>
+</div>
+
     <div v-if="!isSupported">
       Browser Anda tidak mendukung,
       <a href="https://caniuse.com/mdn-api_speechrecognition" target="_blank"
@@ -116,7 +123,8 @@ const postIsyarat = async () => {
           <ion-icon name="mic"></ion-icon>
         </button>
         <h3
-          class="text-center font-bold text-2xl text-slate-800"
+          class="text-center font-bold text-2xl text-slate-800 md:inline"
+          style="display: none;"
           v-if="!isListening"
         >
           Tekan Untuk Memulai
@@ -139,13 +147,17 @@ ion-content.background {
 }
 ion-icon {
   font-size: 60px;
-  /* color: ; */
+  
+}
+.custom-icon-size {
+  --ion-icon-width: 100px; 
+  --ion-icon-height: 100px; 
 }
 .rounded-button {
   width: 80px;
-  height: 80px; /* Atur tinggi tombol */
+  height: 80px; 
   border-radius: 100%;
-  text-align: center; /* Pusatkan teks di dalam tombol jika diperlukan */
-  line-height: 80px; /* Sesuaikan line-height untuk vertikal centering */
+  text-align: center; 
+  line-height: 80px; 
 }
 </style>
