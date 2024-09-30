@@ -54,7 +54,7 @@ const postIsyarat = async () => {
     const results = [];
 
     for (const name of arrtext.value.flat()) {
-      const res = await axios.get("http://localhost:3001/image", {
+      const res = await axios.get("https://pramudita.my.id/image", {
         params: { names: name },
       });
       results.push(res.data.result[0]);
