@@ -77,7 +77,7 @@ const datas = ref([])
 
 const getEdukasi = async () => {
   try {
-    const response = await axios.get("http://pramudita.my.id/content");
+    const response = await axios.get("https://pramudita.my.id/content");
     datas.value = response.data.result;
     console.log(datas.value);
   } catch (error) {
