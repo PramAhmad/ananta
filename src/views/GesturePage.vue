@@ -1,18 +1,9 @@
 <template>
   <ion-content ref="content" scroll-y="true" class="background">
-    <!-- center image -->
     <div style="display: flex; justify-content: center">
-      <img
-        src="\p.png"
-        alt="logo"
-        width="100"
-        height="100"
-        class="h-40 w-40"
-        style="margin-bottom: -60px"
-      />
+      <img src="\p.png" alt="logo" width="100" height="100" class="h-40 w-40" style="margin-bottom: -60px" />
     </div>
-    <h4
-      style="
+    <h4 style="
         text-align: center;
         font-weight: 600;
         font-size: 2rem;
@@ -23,43 +14,17 @@
       Ananta
     </h4>
     <ion-grid>
-      <!-- ion title -->
-
-      <!-- path img to public -->
       <ion-row class="ion-justify-content-center">
         <ion-col size="12" size-md="7" size-lg="6">
           <ion-card class="video-card p-2" color="dark">
-            <!-- Placeholder -->
-
             <video ref="webcam" width="100%" height="90%" autoplay></video>
-            <!-- Video dan Tombol -->
-
-            <button
-              class="py-2 px-3 bg-green-700 mt-3 rounded-md"
-              @click="toggleWebcam"
-              :disabled="webcamRunning"
-              color="success"
-              size="sm"
-            >
-              <!-- percangan enable disable -->
-              <ion-icon
-                slot="icon-only"
-                name="stop"
-                v-if="icon"
-                color="dark"
-              ></ion-icon>
-              <ion-icon
-                slot="icon-only"
-                name="camera"
-                v-if="!icon"
-                color="dark"
-              ></ion-icon>
+            <button class="py-2 px-3 bg-green-700 mt-3 rounded-md" @click="toggleWebcam" :disabled="webcamRunning"
+              color="success" size="sm">
+              <ion-icon slot="icon-only" name="stop" v-if="icon" color="dark"></ion-icon>
+              <ion-icon slot="icon-only" name="camera" v-if="!icon" color="dark"></ion-icon>
             </button>
 
-            <div
-              id="gestureOutput"
-              :style="{ display: gestureOutputDisplay }"
-            ></div>
+            <div id="gestureOutput" :style="{ display: gestureOutputDisplay }"></div>
           </ion-card>
         </ion-col>
 
@@ -71,7 +36,7 @@
               </ion-card-title>
             </ion-card-header>
             <div class="text-container">
-              <div v-for="text in textDisplay" :key="text"> 
+              <div v-for="text in textDisplay" :key="text">
                 <ion-chip color="light" v-if="text != ''">
 
                   <ion-label>{{ text }}</ion-label>
@@ -93,7 +58,6 @@ import {
   FilesetResolver,
   DrawingUtils,
 } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3";
-// import icon ionic
 
 export default {
   setup() {
@@ -111,7 +75,7 @@ export default {
     const textDisplay = ref([]);
     const curentText = ref("");
     let lastAddedTime = 0;
-    const currentTime = new Date().getTime(); 
+    const currentTime = new Date().getTime();
 
     const gestureOutputDisplay = ref("none");
 
@@ -141,14 +105,14 @@ export default {
     }
     function toggleWebcam() {
       if (webcamRunning.value) {
-        webcamRunning.value = false; // Ubah ke false ketika mematikan webcam
-        icon.value = true; 
+        webcamRunning.value = false;
+        icon.value = true;
         if (webcam.value && webcam.value.srcObject) {
           webcam.value.srcObject.getTracks().forEach((track) => track.stop());
         }
       } else {
-        webcamRunning.value = true; // Ubah jadi ture ketika mengaktifkan webcam
-        icon.value = false; 
+        webcamRunning.value = true; 
+        icon.value = false;
         enableWebcam();
       }
     }
@@ -174,7 +138,7 @@ export default {
         console.error("gesture error cuy");
         return;
       }
-
+    
       const webcamElement = webcam.value;
       if (runningMode.value === "IMAGE") {
         runningMode.value = "VIDEO";
@@ -200,11 +164,10 @@ export default {
         // const handedness = results.value.handednesses[0][0].displayName;
         gestureOutput.innerText = `Nama Isyarat: ${categoryName}`;
         curentText.value = categoryName;
-        // push saat tidak sama dalam 1 detik teakhir
 
         if (textDisplay.value[textDisplay.value.length - 1] !== curentText.value && currentTime - lastAddedTime > 1000 && curentText.value != "") {
           textDisplay.value.push(curentText.value);
-          
+
         }
         // textDisplay.value.push(curentText.value);
       } else {
@@ -218,7 +181,7 @@ export default {
       toggleWebcam,
       gestureOutputDisplay,
       webcam,
-      
+
 
       textDisplay,
     };
@@ -237,6 +200,7 @@ export default {
   align-items: center;
   min-width: 300px;
 }
+
 .card-container {
   display: flex;
   justify-content: center;
@@ -245,17 +209,20 @@ export default {
   height: 100%;
   text-align: center;
 }
+
 .placeholder {
   padding-top: 200px;
 }
+
 ion-content.background {
   --background: url("bg.jpg") no-repeat center center / cover;
 }
+
 @media screen and (max-width: 768px) {
   .video-card video {
     height: 400px;
-    width: 100%; 
-    object-fit: cover; 
+    width: 100%;
+    object-fit: cover;
   }
 }
 </style>

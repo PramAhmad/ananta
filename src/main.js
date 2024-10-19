@@ -34,6 +34,7 @@ addIcons({
   heart: heart,
   camera:camera,
   stop:stop,
+  
   play:play,
   ups:arrowUpCircleOutline,
   up:arrowUpCircle,
